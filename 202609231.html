@@ -4,46 +4,245 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>我是人博客</title>
+    <style>
+      :root {
+        --bg: #f4f5f7;
+        --card: #ffffff;
+        --text: #23272f;
+        --muted: #6b7280;
+        --accent: #2563eb;
+        --line: #e8eaee;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        margin: 0;
+        padding: 36px 16px 72px;
+        background: var(--bg);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+          "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        font-size: 17px;
+        line-height: 1.9;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+
+      ::selection {
+        background: rgba(37, 99, 235, 0.15);
+      }
+
+      .page {
+        max-width: 780px;
+        margin: 0 auto;
+        padding: 44px 52px 40px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04),
+          0 16px 40px rgba(16, 24, 40, 0.06);
+      }
+
+      /* ---------- 站点头部 ---------- */
+      .site-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding-bottom: 18px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        font-size: 19px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      .brand img {
+        display: block;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+      }
+
+      /* ---------- 标题层级 ---------- */
+      h1 {
+        margin: 30px 0 26px;
+        font-size: 27px;
+        font-weight: 700;
+        line-height: 1.5;
+        letter-spacing: 0.01em;
+        text-align: center;
+      }
+
+      h2 {
+        position: relative;
+        margin: 40px 0 16px;
+        padding-left: 14px;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1.55;
+      }
+
+      h2::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.42em;
+        bottom: 0.42em;
+        width: 4px;
+        border-radius: 2px;
+        background: var(--accent);
+      }
+
+      /* 文章副标题 */
+      .subtitle {
+        margin: -10px 0 26px;
+        color: var(--muted);
+        font-size: 15px;
+        letter-spacing: 0.02em;
+        text-align: center;
+      }
+
+      /* ---------- 正文 ---------- */
+      p {
+        margin: 0 0 18px;
+      }
+
+      /* ---------- 分隔线 ---------- */
+      hr {
+        margin: 34px 0;
+        border: 0;
+        border-top: 1px solid var(--line);
+      }
+
+      /* ---------- 分享 ---------- */
+      .share a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        border-radius: 999px;
+        background: rgba(37, 99, 235, 0.08);
+        color: var(--accent);
+        font-size: 15px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+      }
+
+      .share a:hover {
+        background: var(--accent);
+        color: #fff;
+        transform: translateY(-1px);
+      }
+
+      .share a:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+
+      /* ---------- 页脚 ---------- */
+      .copyright {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        text-align: center;
+      }
+
+      /* ---------- 响应式 ---------- */
+      @media (max-width: 640px) {
+        body {
+          padding: 16px 12px 52px;
+          font-size: 16px;
+          line-height: 1.85;
+        }
+
+        .page {
+          padding: 28px 22px 26px;
+          border-radius: 14px;
+        }
+
+        h1 {
+          margin: 24px 0 20px;
+          font-size: 22px;
+        }
+
+        h2 {
+          margin: 32px 0 14px;
+          font-size: 18px;
+        }
+      }
+    </style>
   </head>
   <body>
-    <h2 class="text-xl font-bold">
-      <img
-        src="data:image/png;base64,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"
-        alt=""
-      />
-      我是人博客
-    </h2>
-    <hr />
-    <h1 class="text-2xl font-bold" style="text-align: center;">评价特朗普20260923</h1>
-    <hr />
-    <h1 class="text-2xl font-bold" style="text-align: left;">特朗普第二任期执政综合评论</h1>
-    <p style="text-align: left;">
-      特朗普2025年开启第二任期后，其执政轨迹呈现出极强的个人风格与争议属性，与第一任期相比，这一阶段的政策推进更偏向激进单边，对美国国内秩序和全球格局都产生了深刻影响。
-    </p>
-    <p style="text-align: left;">
-      内政层面，他以“美国优先”为核心推出一系列政策：对内签署大规模减税法案，同时放宽能源监管加速本土石油开采，试图通过能源自主压低通胀，却在实际执行中推高了普通商品物价，民众生活成本并未得到预期缓解。移民政策上，他宣布南部边境进入紧急状态，推动终止出生公民权、大规模驱逐非法移民，相关举措直接引发20多个州联合起诉，多地法院裁定部分政策违宪，联邦与地方的治理冲突持续升级。他还推动设立“政府效率部”进行政府查账裁员，计划解散教育部、取消多元包容政策，这类打破传统行政架构的操作，也在国内引发了大量体制内群体和教育界的强烈反对。
-    </p>
-    <p style="text-align: left;">
-      外交领域，单边主义倾向进一步强化：上任至今已退出数十个国际组织，重新谈判北美自贸协定，对多国加征高额关税，直接打乱了运行多年的全球贸易秩序。在中东问题上，他一边多次放出“夷平伊朗”的极端言论，一边反复宣称对伊战争“即将结束”，前后相关表态多达38次，却始终没能拿出清晰的停战路线，导致中东局势持续紧绷，美国民众也对这场耗资数百亿美元的战事愈发不满。在对华关系上，他延续了强硬博弈的思路，通过加征关税、技术封锁等手段试图限制中国产业发展，却也让美国自身的供应链成本大幅上升，不少依赖中国市场的美国企业利益受损。
-    </p>
-    <p style="text-align: left;">
-      当前特朗普的执政困境已经十分明显：他习惯将国内所有经济、社会问题都归咎于前任拜登，公开点名批评拜登的次数已接近900次，试图通过甩锅转移公众视线，但这种操作已经难以说服普通选民。最新民调显示，仅有约三分之一的美国民众认可他的执政表现，多项核心政策在司法层面接连受挫，三权制衡机制下的权力拉扯持续消耗着政府的施政效率。
-    </p>
-    <p style="text-align: left;">
-      整体来看，特朗普的第二任期执政，本质上是用极端化的“美国优先”打破了过去数十年美国内政外交的传统平衡，短期看似满足了部分本土保守群体的诉求，长期却严重透支了美国的国际信誉，也让国内社会的撕裂进一步加剧。
-    </p>
-    <hr />
-    <p>
-      <a
-        href="https://twitter.com/intent/tweet?url=https://blog.rensite.cn/202609231.html"
-        target="_blank"
-        class="text-primary underline cursor-pointer"
-      >
-        分享至 Twitter
-      </a>
-    </p>
-    <p><br /></p>
-    <hr />
-    <p style="text-align: left;">版权所有2026</p>
+    <main class="page">
+      <header class="site-header">
+        <h2 class="brand">
+          <img
+            src="data:image/png;base64,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"
+            alt=""
+          />
+          我是人博客
+        </h2>
+      </header>
+
+      <hr />
+
+      <h1>评价特朗普20260923</h1>
+
+      <hr />
+
+      <h2>特朗普第二任期执政综合评论</h2>
+
+      <p>
+        特朗普2025年开启第二任期后，其执政轨迹呈现出极强的个人风格与争议属性，与第一任期相比，这一阶段的政策推进更偏向激进单边，对美国国内秩序和全球格局都产生了深刻影响。
+      </p>
+
+      <p>
+        内政层面，他以“美国优先”为核心推出一系列政策：对内签署大规模减税法案，同时放宽能源监管加速本土石油开采，试图通过能源自主压低通胀，却在实际执行中推高了普通商品物价，民众生活成本并未得到预期缓解。移民政策上，他宣布南部边境进入紧急状态，推动终止出生公民权、大规模驱逐非法移民，相关举措直接引发20多个州联合起诉，多地法院裁定部分政策违宪，联邦与地方的治理冲突持续升级。他还推动设立“政府效率部”进行政府查账裁员，计划解散教育部、取消多元包容政策，这类打破传统行政架构的操作，也在国内引发了大量体制内群体和教育界的强烈反对。
+      </p>
+
+      <p>
+        外交领域，单边主义倾向进一步强化：上任至今已退出数十个国际组织，重新谈判北美自贸协定，对多国加征高额关税，直接打乱了运行多年的全球贸易秩序。在中东问题上，他一边多次放出“夷平伊朗”的极端言论，一边反复宣称对伊战争“即将结束”，前后相关表态多达38次，却始终没能拿出清晰的停战路线，导致中东局势持续紧绷，美国民众也对这场耗资数百亿美元的战事愈发不满。在对华关系上，他延续了强硬博弈的思路，通过加征关税、技术封锁等手段试图限制中国产业发展，却也让美国自身的供应链成本大幅上升，不少依赖中国市场的美国企业利益受损。
+      </p>
+
+      <p>
+        当前特朗普的执政困境已经十分明显：他习惯将国内所有经济、社会问题都归咎于前任拜登，公开点名批评拜登的次数已接近900次，试图通过甩锅转移公众视线，但这种操作已经难以说服普通选民。最新民调显示，仅有约三分之一的美国民众认可他的执政表现，多项核心政策在司法层面接连受挫，三权制衡机制下的权力拉扯持续消耗着政府的施政效率。
+      </p>
+
+      <p>
+        整体来看，特朗普的第二任期执政，本质上是用极端化的“美国优先”打破了过去数十年美国内政外交的传统平衡，短期看似满足了部分本土保守群体的诉求，长期却严重透支了美国的国际信誉，也让国内社会的撕裂进一步加剧。
+      </p>
+
+      <hr />
+
+      <p class="share">
+        <a
+          href="https://twitter.com/intent/tweet?url=https://blog.rensite.cn/202609231.html"
+          target="_blank"
+          rel="noopener"
+        >
+          分享至 Twitter
+        </a>
+      </p>
+
+      <hr />
+
+      <p class="copyright">版权所有2026</p>
+    </main>
   </body>
 </html>
