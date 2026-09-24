@@ -4,68 +4,301 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>我是人博客</title>
+    <style>
+      :root {
+        --bg: #f4f5f7;
+        --card: #ffffff;
+        --text: #23272f;
+        --muted: #6b7280;
+        --accent: #2563eb;
+        --line: #e8eaee;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        margin: 0;
+        padding: 36px 16px 72px;
+        background: var(--bg);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+          "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        font-size: 17px;
+        line-height: 1.9;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+
+      ::selection {
+        background: rgba(37, 99, 235, 0.15);
+      }
+
+      .page {
+        max-width: 780px;
+        margin: 0 auto;
+        padding: 44px 52px 40px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04),
+          0 16px 40px rgba(16, 24, 40, 0.06);
+      }
+
+      /* ---------- 站点头部 ---------- */
+      .site-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding-bottom: 18px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        font-size: 19px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      .brand::before {
+        display: none;
+      }
+
+      .brand img {
+        display: block;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+      }
+
+      /* ---------- 标题 ---------- */
+      h1 {
+        margin: 30px 0 26px;
+        font-size: 27px;
+        font-weight: 700;
+        line-height: 1.5;
+        letter-spacing: 0.01em;
+        text-align: center;
+      }
+
+      h2 {
+        position: relative;
+        margin: 40px 0 16px;
+        padding-left: 14px;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1.55;
+      }
+
+      h2::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.42em;
+        bottom: 0.42em;
+        width: 4px;
+        border-radius: 2px;
+        background: var(--accent);
+      }
+
+      /* ---------- 正文 ---------- */
+      p {
+        margin: 0 0 18px;
+      }
+
+      /* ---------- 列表 ---------- */
+      ul.numbered {
+        margin: 0 0 20px;
+        padding: 0;
+        list-style: none;
+        counter-reset: item;
+      }
+
+      ul.numbered li {
+        position: relative;
+        margin-bottom: 14px;
+        padding-left: 42px;
+        counter-increment: item;
+      }
+
+      ul.numbered li::before {
+        content: counter(item);
+        position: absolute;
+        left: 0;
+        top: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: rgba(37, 99, 235, 0.1);
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      /* ---------- 分隔线 ---------- */
+      hr {
+        margin: 34px 0;
+        border: 0;
+        border-top: 1px solid var(--line);
+      }
+
+      /* ---------- 分享 ---------- */
+      .share a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        border-radius: 999px;
+        background: rgba(37, 99, 235, 0.08);
+        color: var(--accent);
+        font-size: 15px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+      }
+
+      .share a:hover {
+        background: var(--accent);
+        color: #fff;
+        transform: translateY(-1px);
+      }
+
+      .share a:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+
+      /* ---------- 页脚 ---------- */
+      .copyright {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        text-align: center;
+      }
+
+      /* ---------- 响应式 ---------- */
+      @media (max-width: 640px) {
+        body {
+          padding: 16px 12px 52px;
+          font-size: 16px;
+          line-height: 1.85;
+        }
+
+        .page {
+          padding: 28px 22px 26px;
+          border-radius: 14px;
+        }
+
+        h1 {
+          margin: 24px 0 20px;
+          font-size: 22px;
+        }
+
+        h2 {
+          margin: 32px 0 14px;
+          font-size: 18px;
+        }
+
+        ul.numbered li {
+          padding-left: 38px;
+        }
+      }
+    </style>
   </head>
   <body>
-    <h2 class="text-xl font-bold">
-      <img
-        src="data:image/png;base64,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"
-        alt=""
-      />
-      我是人博客
-    </h2>
-    <hr />
-    <h1 class="text-2xl font-bold" style="text-align: center;">2.7亿人上过大学：我们正在经历一场安静的人才结构变革</h1>
-    <hr />
-    <p style="text-align: left;">
-      最近教育部发布的一组数据，让很多人重新意识到身边正在发生的变化：中国接受过高等教育的人口已经达到2.7亿。这个数字不只是统计报表上的一行数字，它背后是几代人受教育机会的提升，也是整个社会人才结构的一次深刻重塑。
-    </p>
-    <h2 class="text-xl font-bold" style="text-align: left;">从“稀缺品”到“大众标配”的转变</h2>
-    <p style="text-align: left;">
-      放在几十年前，大学生还是妥妥的“天之骄子”，一个村子里出个大学生是要敲锣打鼓报喜的稀罕事。而现在，高等教育毛入学率已经突破六成，每5个受教育人口里就有1人接受过高等教育。
-      <br />
-      义务教育巩固率达到96.1%，高中阶段毛入学率达到92%，基础教育整体水平已经追上高收入国家平均水准。从千军万马过独木桥，到现在适龄青年大多能获得接受高等教育的机会，这个跨越只用了短短几十年。
-    </p>
-    <h2 class="text-xl font-bold" style="text-align: left;">2.7亿人口背后的真实结构</h2>
-    <p style="text-align: left;">很多人调侃“学历烂大街”，但摊开全国人口的学历盘就会发现，高学历依然不是全民标配：</p>
-    <ul>
-      <li value="1" style="text-align: left;">
-        专科及以上学历人群占比刚过两成，初中及以下文化程度的人口依然是人口基数最大的群体
-      </li>
-      <li value="2" style="text-align: left;">
-        本科及以上学历人口占比仅一成出头，研究生学历人口占比不足1.2%，每100个国人里还不到2个研究生
-      </li>
-      <li value="3" style="text-align: left;">
-        地域分布差异极大，北京每2人中就有1人拥有大专及以上学历，上海这一比例也突破40%，但不少中西部省份的高学历人口占比还不到20%
-      </li>
-    </ul>
-    <p style="text-align: left;">
-      所谓“本科生遍地走”的错觉，大多来自互联网行业、一线城市、高校圈层这类高学历人群高度集中的场景，放到全国14亿人的宏观视角里，接受过高等教育依然是不小的优势。
-    </p>
-    <h2 class="text-xl font-bold" style="text-align: left;">人才扩容带来的双向改变</h2>
-    <p style="text-align: left;">
-      海量高学历劳动力涌入市场，同时给社会和个体带来了双重影响。
-      <br />
-      对产业来说，这是一笔极其珍贵的人才储备：职业教育每年为现代产业输送70%以上的新增高技能人才，2025年国家科技三大奖通用项目里，高校牵头获奖的占了四分之三，高端制造、生物医药、人工智能这些需要大量知识型人才的新兴产业，正是靠着这源源不断的人才供给才能快速追赶世界先进水平。
-      <br />
-      对个体来说，过去“一纸文凭走天下”的时代已经过去了。用人单位的筛选门槛不断上移，不少原本本科生就能胜任的岗位，现在挤满了硕士投递，倒逼年轻人不再只盯着文凭本身，转而更看重实操能力、项目经验和不可替代的核心竞争力。
-    </p>
-    <h2 class="text-xl font-bold" style="text-align: left;">提质才是下一阶段的核心</h2>
-    <p style="text-align: left;">
-      “十五五”期间，高等教育的发展主线已经从“扩规模”转向“提质量”。接下来的重点不再是单纯增加招生人数，而是把学位供给做得更充裕，让产教融合更落地，培养出更多能匹配产业需求的拔尖创新人才和大国工匠。
-      <br />
-      说到底，2.7亿这个数字不是终点，而是一个新起点。它标志着我们已经彻底告别了高等教育的精英时代，正在用全世界最大规模的人才储备，为接下来的产业升级和高质量发展筑牢最坚实的底座。
-    </p>
-    <hr />
-    <p>
-      <a
-        href="https://twitter.com/intent/tweet?url=https://blog.rensite.cn/1.html"
-        target="_blank"
-        class="text-primary underline cursor-pointer"
-      >
-        分享至 Twitter
-      </a>
-    </p>
-    <hr />
-    <p style="text-align: left;">版权所有2026</p>
+    <main class="page">
+      <header class="site-header">
+        <h2 class="brand">
+          <img
+            src="data:image/png;base64,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"
+            alt=""
+          />
+          我是人博客
+        </h2>
+      </header>
+
+      <hr />
+
+      <h1>2.7亿人上过大学：我们正在经历一场安静的人才结构变革</h1>
+
+      <hr />
+
+      <p>
+        最近教育部发布的一组数据，让很多人重新意识到身边正在发生的变化：中国接受过高等教育的人口已经达到2.7亿。这个数字不只是统计报表上的一行数字，它背后是几代人受教育机会的提升，也是整个社会人才结构的一次深刻重塑。
+      </p>
+
+      <h2>从“稀缺品”到“大众标配”的转变</h2>
+      <p>
+        放在几十年前，大学生还是妥妥的“天之骄子”，一个村子里出个大学生是要敲锣打鼓报喜的稀罕事。而现在，高等教育毛入学率已经突破六成，每5个受教育人口里就有1人接受过高等教育。
+      </p>
+      <p>
+        义务教育巩固率达到96.1%，高中阶段毛入学率达到92%，基础教育整体水平已经追上高收入国家平均水准。从千军万马过独木桥，到现在适龄青年大多能获得接受高等教育的机会，这个跨越只用了短短几十年。
+      </p>
+
+      <h2>2.7亿人口背后的真实结构</h2>
+      <p>很多人调侃“学历烂大街”，但摊开全国人口的学历盘就会发现，高学历依然不是全民标配：</p>
+      <ul class="numbered">
+        <li>
+          专科及以上学历人群占比刚过两成，初中及以下文化程度的人口依然是人口基数最大的群体
+        </li>
+        <li>
+          本科及以上学历人口占比仅一成出头，研究生学历人口占比不足1.2%，每100个国人里还不到2个研究生
+        </li>
+        <li>
+          地域分布差异极大，北京每2人中就有1人拥有大专及以上学历，上海这一比例也突破40%，但不少中西部省份的高学历人口占比还不到20%
+        </li>
+      </ul>
+      <p>
+        所谓“本科生遍地走”的错觉，大多来自互联网行业、一线城市、高校圈层这类高学历人群高度集中的场景，放到全国14亿人的宏观视角里，接受过高等教育依然是不小的优势。
+      </p>
+
+      <h2>人才扩容带来的双向改变</h2>
+      <p>海量高学历劳动力涌入市场，同时给社会和个体带来了双重影响。</p>
+      <p>
+        对产业来说，这是一笔极其珍贵的人才储备：职业教育每年为现代产业输送70%以上的新增高技能人才，2025年国家科技三大奖通用项目里，高校牵头获奖的占了四分之三，高端制造、生物医药、人工智能这些需要大量知识型人才的新兴产业，正是靠着这源源不断的人才供给才能快速追赶世界先进水平。
+      </p>
+      <p>
+        对个体来说，过去“一纸文凭走天下”的时代已经过去了。用人单位的筛选门槛不断上移，不少原本本科生就能胜任的岗位，现在挤满了硕士投递，倒逼年轻人不再只盯着文凭本身，转而更看重实操能力、项目经验和不可替代的核心竞争力。
+      </p>
+
+      <h2>提质才是下一阶段的核心</h2>
+      <p>
+        “十五五”期间，高等教育的发展主线已经从“扩规模”转向“提质量”。接下来的重点不再是单纯增加招生人数，而是把学位供给做得更充裕，让产教融合更落地，培养出更多能匹配产业需求的拔尖创新人才和大国工匠。
+      </p>
+      <p>
+        说到底，2.7亿这个数字不是终点，而是一个新起点。它标志着我们已经彻底告别了高等教育的精英时代，正在用全世界最大规模的人才储备，为接下来的产业升级和高质量发展筑牢最坚实的底座。
+      </p>
+
+      <hr />
+
+      <p class="share">
+        <a
+          href="https://twitter.com/intent/tweet?url=https://blog.rensite.cn/1.html"
+          target="_blank"
+          rel="noopener"
+        >
+          分享至 Twitter
+        </a>
+      </p>
+
+      <hr />
+
+      <p class="copyright">版权所有2026</p>
+    </main>
   </body>
 </html>
