@@ -1,206 +1,55 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>我是人博客</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>我是人博客</title>
+<meta name="description" content="我是人博客：分享社会、经济、文化的独立观察与思考。">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Blog","name":"我是人博客","url":"https://blog.rensite.cn/","author":{"@type":"Person","name":"我是人"},"blogPost":[
+{"@type":"BlogPosting","headline":"评价特朗普的所作所为——资本主义的恶臭与腐败","url":"https://blog.rensite.cn/202609231.html"},
+{"@type":"BlogPosting","headline":"批判资本主义制度的内在矛盾与历史局限性","url":"https://blog.rensite.cn/202609232.html"},
+{"@type":"BlogPosting","headline":"2.7亿人上过大学：我们正在经历一场安静的人才结构变革","url":"https://blog.rensite.cn/1.html"},
+{"@type":"BlogPosting","headline":"习近平主席对美国进行国事访问：为动荡世界注入宝贵确定性","url":"https://blog.rensite.cn/2.html"},
+{"@type":"BlogPosting","headline":"孙颖莎力挑日本队，重振体育强国荣光。","url":"https://blog.rensite.cn/3.html"}]}
+</script>
 <style>
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", sans-serif;
-            background: #f9f8f6;
-            color: #1e1e1c;
-            padding: 20px 24px;
-            line-height: 1.6;
-            max-width: 1500px;
-            margin: 0 auto;
-        }
-
-        a {
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        p {
-            margin-bottom: 12px;
-        }
-
-        hr {
-            border: 0;
-            border-top: 2px solid #e2ddd6;
-            margin: 24px 0;
-        }
-
-        .text-primary {
-            color: #cc785c;
-        }
-
-        .underline {
-            text-decoration: none;
-        }
-
-        .font-bold {
-            font-weight: 600;
-        }
-
-
-        /* 保留原有块级元素的背景色、圆角、阴影等 */
-        h2.text-xl {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: #1e1e1c;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            vertical-align: middle;
-        }
-
-        .nav-btn-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 6px;
-            align-items: center;
-        }
-        .nav-btn-group a {
-            display: inline-block;
-            padding: 4px 16px;
-            border-radius: 50px;
-            background: #bbbbbb;
-            color: #777;
-            font-size: 16px;
-            font-family: "Noto Sans SC", sans-serif;
-            transition: all 0.2s;
-            text-decoration: none;
-        }
-        .nav-btn-group a:hover {
-            background: #aaa;
-            color: #333;
-            transform: translateY(-1px);
-        }
-
-        /* 保留其他原有色块链接 (棕色/蓝色) */
-        a[style*="background: none 0% 0% / auto repeat scroll padding-box border-box rgb(121, 85, 72)"] {
-            display: inline-block;
-            padding: 2px 14px;
-            border-radius: 12px;
-            background: #795548 !important;
-            color: #fff !important;
-            font-size: 24px;
-            font-family: "Noto Sans SC", sans-serif;
-            transition: all 0.2s;
-        }
-        a[style*="background: none 0% 0% / auto repeat scroll padding-box border-box rgb(121, 85, 72)"]:hover {
-            background: #5d4037 !important;
-            transform: scale(1.02);
-        }
-
-        a[style*="background: none 0% 0% / auto repeat scroll padding-box border-box rgb(79, 195, 247)"] {
-            display: inline-block;
-            padding: 2px 14px;
-            border-radius: 12px;
-            background: #4fc3f7 !important;
-            color: #fff !important;
-            font-size: 16px;
-            font-family: "Noto Sans SC", sans-serif;
-            transition: all 0.2s;
-        }
-        a[style*="background: none 0% 0% / auto repeat scroll padding-box border-box rgb(79, 195, 247)"]:hover {
-            background: #29b6f6 !important;
-            transform: scale(1.02);
-        }
-
-        /* 其他微调：防止文字溢出，改善可读性 */
-        .inline-block {
-            display: inline-block;
-        }
-
-        .max-w-full {
-            max-width: 100%;
-        }
-
-        .cursor-pointer {
-            cursor: pointer;
-        }
-
-        .align-bottom {
-            vertical-align: bottom;
-        }
-
-        [data-hve-hovered] {
-            outline: 2px dashed #cc785c !important;
-            outline-offset: 2px !important;
-            cursor: pointer !important;
-        }
-
-        /* 优化移动端显示 */
-        @media (max-width: 640px) {
-            body {
-                padding: 12px 16px;
-            }
-            a[style*="background: none 0% 0% / auto repeat scroll padding-box border-box rgb(121, 85, 72)"] {
-                font-size: 18px !important;
-                padding: 2px 10px;
-            }
-            .max-w-lg {
-                max-width: 100%;
-            }
-            .nav-btn-group a {
-                font-size: 14px;
-                padding: 3px 12px;
-            }
-            .search-btn {
-                transform: scale(0.6);
-                padding: 0.5rem 1rem;
-                font-size: 0.85rem;
-            }
-            .welcome-left {
-                font-size: 18px;
-                margin-right: 12px;
-                white-space: normal;
-            }
-            .search-wrapper {
-                flex-wrap: wrap;
-            }
-        }
-
-    </style>
-</head>
-<body class="hve-web-active hve-edit-mode">
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans SC",sans-serif;background:#f9f8f6;color:#1e1e1c;padding:20px 24px;line-height:1.6;max-width:1500px;margin:0 auto;position:relative;min-height:100vh}
+a{text-decoration:none;transition:all .2s ease}
+img{max-width:100%;height:auto;vertical-align:middle}
+</style>
 </head>
 <body>
 
-  <img src="data:image/png;base64,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" alt="unknown_plugin.png" style="max-width:100%; height:37.6px; margin:0; display:block; border-radius:8px; position:absolute; left:768px; top:285px; z-index:200; transform:translate(-704.8px,-244.8px); width:38.4px;">
+<main style="position:relative;min-height:600px">
 
-  <h2 style="font-size:28px; font-weight:700; color:#141413; margin:0; position:absolute; left:768px; top:285px; z-index:200; transform:translate(-660px,-250px);">我是人博客</h2>
+  <img src="data:image/png;base64,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" alt="我是人博客" style="width:38.4px;height:37.6px;border-radius:8px;position:absolute;left:63px;top:40px;z-index:200">
 
-  <hr style="border:none; height:1px; background:linear-gradient(to right,transparent,#e6dfd8,transparent); margin:0; position:absolute; left:768px; top:285px; z-index:200; width:1503.2px; transform:translate(-752.8px,-179.2px);">
+  <h1 style="font-size:28px;font-weight:700;color:#141413;margin:0;position:absolute;left:108px;top:35px;z-index:200">我是人博客</h1>
 
-  <a href="https://huanyexuan.xyz/help.html" target="_blank" rel="noopener noreferrer" style="color:#cc785c; text-decoration:underline; font-size:16px; display:inline-block; margin:0; position:absolute; left:768px; top:285px; z-index:200; transform:translate(650px,-235px);">联系我</a>
+  <hr style="border:none;height:1px;background:linear-gradient(to right,transparent,#e6dfd8,transparent);margin:0;position:absolute;left:15px;top:106px;width:100%;z-index:200">
 
-  <a href="https://blog.rensite.cn/more.html" target="_blank" rel="noopener noreferrer" style="color:#cc785c; text-decoration:underline; font-size:16px; display:inline-block; margin:0; position:absolute; left:768px; top:285px; z-index:200; transform:translate(600px,-235px);">关于</a>
+  <nav style="position:absolute;right:0;top:35px;z-index:200">
+    <a href="https://blog.rensite.cn/more.html" target="_blank" rel="noopener" style="color:#cc785c;text-decoration:underline;font-size:16px;margin-right:24px">关于</a>
+    <a href="https://huanyexuan.xyz/help.html" target="_blank" rel="noopener" style="color:#cc785c;text-decoration:underline;font-size:16px">联系我</a>
+  </nav>
 
-  <h2 style="font-size:28px; font-weight:700; color:#141413; margin:0; position:absolute; left:768px; top:285px; z-index:200; transform:translate(-685px,-135px);">文章列表</h2>
+  <h2 style="font-size:28px;font-weight:700;color:#141413;margin:0;position:absolute;left:83px;top:150px;z-index:200">文章列表</h2>
 
-  <a href="https://blog.rensite.cn/202609231.html" target="_blank" rel="noopener noreferrer" style="color:#cc785c; text-decoration:underline; font-size:20px; display:inline-block; margin:0; position:absolute; left:768px; top:285px; z-index:200; transform:translate(-588px,-50px); width:1000px; height:24px;">评价特朗普的所作所为——资本主义的恶臭与腐败</a>
+  <section aria-label="文章列表" style="position:absolute;left:180px;top:210px;z-index:200;width:1000px;max-width:100%">
+    <article style="margin-bottom:18px"><a href="https://blog.rensite.cn/202609231.html" target="_blank" rel="noopener" style="color:#cc785c;text-decoration:underline;font-size:20px">评价特朗普的所作所为——资本主义的恶臭与腐败</a></article>
+    <article style="margin-bottom:18px"><a href="https://blog.rensite.cn/202609232.html" target="_blank" rel="noopener" style="color:#cc785c;text-decoration:underline;font-size:20px">批判资本主义制度的内在矛盾与历史局限性</a></article>
+    <article style="margin-bottom:18px"><a href="https://blog.rensite.cn/1.html" target="_blank" rel="noopener" style="color:#cc785c;text-decoration:underline;font-size:20px">2.7亿人上过大学：我们正在经历一场安静的人才结构变革</a></article>
+    <article style="margin-bottom:18px"><a href="https://blog.rensite.cn/2.html" target="_blank" rel="noopener" style="color:#cc785c;text-decoration:underline;font-size:20px">习近平主席对美国进行国事访问：为动荡世界注入宝贵确定性</a></article>
+    <article style="margin-bottom:18px"><a href="https://blog.rensite.cn/3.html" target="_blank" rel="noopener" style="color:#cc785c;text-decoration:underline;font-size:20px">孙颖莎力挑日本队，重振体育强国荣光。</a></article>
+  </section>
 
-  <a href="https://blog.rensite.cn/202609232.html" target="_blank" rel="noopener noreferrer" style="color:#cc785c; text-decoration:underline; font-size:20px; display:inline-block; margin:0; position:absolute; left:768px; top:285px; z-index:200; transform:translate(-588px,0px); width:1000px; height:24px;">批判资本主义制度的内在矛盾与历史局限性</a>
+</main>
 
-  <a href="https://blog.rensite.cn/1.html" target="_blank" rel="noopener noreferrer" style="color:#cc785c; text-decoration:underline; font-size:20px; display:inline-block; margin:0; position:absolute; left:768px; top:285px; z-index:200; transform:translate(-588px,50px); width:1000px; height:24px;">2.7亿人上过大学：我们正在经历一场安静的人才结构变革</a>
-  
-  <a href="https://blog.rensite.cn/2.html" target="_blank" rel="noopener noreferrer" style="color:#cc785c; text-decoration:underline; font-size:20px; display:inline-block; margin:0; position:absolute; left:768px; top:285px; z-index:200; transform:translate(-588px,100px); width:1000px; height:24px;">习近平主席对美国进行国事访问：为动荡世界注入宝贵确定性</a>
-  
-  <a href="https://blog.rensite.cn/3.html" target="_blank" rel="noopener noreferrer" style="color:#cc785c; text-decoration:underline; font-size:20px; display:inline-block; margin:0; position:absolute; left:768px; top:285px; z-index:200; transform:translate(-588px,150px); width:1000px; height:24px;">孙颖莎力挑日本队，重振体育强国荣光。</a>
+<footer style="position:absolute;bottom:20px;left:0;width:100%;text-align:center;font-size:14px;color:#aaa">
+  © 2026 我是人博客
+</footer>
 
-</body>
 </body>
 </html>
