@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>我是人博客</title>
+    <style>
+      :root {
+        --bg: #f4f5f7;
+        --card: #ffffff;
+        --text: #23272f;
+        --muted: #6b7280;
+        --accent: #2563eb;
+        --line: #e8eaee;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        margin: 0;
+        padding: 36px 16px 72px;
+        background: var(--bg);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+          "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        font-size: 17px;
+        line-height: 1.9;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+
+      ::selection {
+        background: rgba(37, 99, 235, 0.15);
+      }
+
+      .page {
+        max-width: 780px;
+        margin: 0 auto;
+        padding: 44px 52px 40px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04),
+          0 16px 40px rgba(16, 24, 40, 0.06);
+      }
+
+      /* ---------- 站点头部 ---------- */
+      .site-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding-bottom: 18px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        font-size: 19px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      .brand img {
+        display: block;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+      }
+
+      /* ---------- 标题层级 ---------- */
+      h1 {
+        margin: 30px 0 26px;
+        font-size: 27px;
+        font-weight: 700;
+        line-height: 1.5;
+        letter-spacing: 0.01em;
+        text-align: center;
+      }
+
+      h2 {
+        position: relative;
+        margin: 42px 0 16px;
+        padding-left: 14px;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1.55;
+      }
+
+      h2::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.42em;
+        bottom: 0.42em;
+        width: 4px;
+        border-radius: 2px;
+        background: var(--accent);
+      }
+
+      /* ---------- 正文 ---------- */
+      p {
+        margin: 0 0 18px;
+      }
+
+      /* ---------- 分隔线 ---------- */
+      hr {
+        margin: 34px 0;
+        border: 0;
+        border-top: 1px solid var(--line);
+      }
+
+      /* ---------- 分享 ---------- */
+      .share a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        border-radius: 999px;
+        background: rgba(37, 99, 235, 0.08);
+        color: var(--accent);
+        font-size: 15px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+      }
+
+      .share a:hover {
+        background: var(--accent);
+        color: #fff;
+        transform: translateY(-1px);
+      }
+
+      .share a:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+
+      /* ---------- 页脚 ---------- */
+      .copyright {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        text-align: center;
+      }
+
+      /* ---------- 响应式 ---------- */
+      @media (max-width: 640px) {
+        body {
+          padding: 16px 12px 52px;
+          font-size: 16px;
+          line-height: 1.85;
+        }
+
+        .page {
+          padding: 28px 22px 26px;
+          border-radius: 14px;
+        }
+
+        h1 {
+          margin: 24px 0 20px;
+          font-size: 22px;
+        }
+
+        h2 {
+          margin: 32px 0 14px;
+          font-size: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header class="site-header">
+        <h2 class="brand">
+          <img
+            src="data:image/png;base64,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"
+            alt=""
+          />
+          我是人博客
+        </h2>
+      </header>
+
+      <hr />
+
+      <h1>平平与福双启程：跨越太平洋的十年熊猫之约</h1>
+
+      <hr />
+
+      <p>
+        九月的成都还浸着湿润的竹香，大熊猫“平平”正抱着半根青竹慢悠悠啃得投入，不远处的“福双”已经踩着晒暖的阳光，在草坪上滚出了一身浅草屑。再过几天，这对来自成都大熊猫繁育研究基地的伙伴，就将正式启程飞往美国亚特兰大动物园，开启为期十年的大熊猫保护国际合作之旅。消息从公布之初就牵动了无数人的目光，从国内网友的花式告别，到美国亚特兰大民众提前大半年就开始倒计时等待，这趟跨越太平洋的旅程，早已不只是两只大熊猫的跨国旅居，更是一段延续了二十多年的中美熊猫情缘的全新续写。
+      </p>
+
+      <h2>两只滚滚的“熊生小档案”</h2>
+      <p>作为本次中美合作的主角，平平和福双各自带着满点的萌点和完整的成长故事，早就拥有了属于自己的一批忠实粉丝。</p>
+      <p>
+        雄性大熊猫平平谱系号951，2015年6月出生于中国大熊猫保护研究中心雅安碧峰峡基地，妈妈是知名大熊猫芊芊。从小在碧峰峡的山林里摸爬滚打的他，养成了沉稳又带点小调皮的性格，平时最爱做的事就是抱着比自己胳膊还粗的竹子啃得咔嚓作响，偶尔也会爬到高高的树杈上，晒着太阳打一下午的盹，是园区里出了名的“淡定干饭侠”。这次赴美，对他来说也算是接过了同名前辈的接力棒——早在1957年，第一只走出国门的现代旅居大熊猫就叫“平平”，当年远赴莫斯科的那只熊猫，正式拉开了新中国现代熊猫外交的序幕，如今同名的平平再次踏上国际合作的旅途，仿佛是一场跨越半个多世纪的奇妙呼应。
+      </p>
+      <p>
+        雌性大熊猫福双谱系号1250，2020年10月出生于成都大熊猫繁育研究基地的月亮产房，妈妈是大熊猫福禄，她还有个大家更熟悉的昵称“汐宝”。2022年，一款国产手游正式认养了福双，给她取了这个软萌的别名，也让更多年轻网友通过这次认养，关注到了大熊猫保护的日常。福双的熊生从小就充满了关注度，外婆瑛华、姨妈大白兔和点点、舅舅福星，个个都是熊猫圈里的“人气明星”，而她自己也凭着圆滚滚的脸蛋和爱打滚的活泼性格，圈了一大波粉丝。平时的福双是个不折不扣的“小玩家”，总爱追着饲养员的脚步要小苹果，还会抱着自己的毛绒玩具在木架上晃悠，古灵精怪的模样让看过她视频的人都忍不住会心一笑。
+      </p>
+      <p>
+        两只性格一稳一活泼的大熊猫凑在一起，还没出发就已经让大洋彼岸的亚特兰大民众充满了期待。亚特兰大动物园的负责人早前就公开表示，整个城市都在等着这两位特殊的小客人到来，大家早就盼着重温二十多年前和大熊猫相伴的温暖时光。
+      </p>
+
+      <h2>跨越二十多年的亚特兰大熊猫情缘</h2>
+      <p>
+        很多人不知道，亚特兰大其实是和中国大熊猫羁绊极深的一座美国城市。早在1999年，大熊猫“洋洋”和“伦伦”就来到了这里旅居，一住就是二十多年，还创下了中国与欧美地区大熊猫繁育合作的最好成绩，前后繁育成活了5胎7只熊猫幼崽。那些年里，亚特兰大动物园几乎成了全美国熊猫爱好者的朝圣地，不少家庭从几代人都是熊猫的忠实粉丝，爷爷奶奶年轻时排队看洋洋和伦伦，带着孩子来看他们生下的熊猫宝宝，现在又等着迎接新来的平平和福双，这份跨越了代际的喜爱，成了两国民众之间最柔软的情感纽带。
+      </p>
+      <p>
+        当年洋洋和伦伦在亚特兰大生活的日子里，留下了数不清的温暖故事。动物园里的工作人员为了让他们吃到合口味的竹子，专门考察了周边的竹种，发动附近的居民一起参与种植维护，慢慢建起了一片上千亩的“熊猫专属竹林”，每天新鲜采摘的竹子送到馆里，保证两只大熊猫随时都能吃上对口的“家乡饭”。不少美国小朋友从学会走路开始，就跟着父母每月去动物园看熊猫，看着熊猫幼崽从巴掌大一点点长成圆滚滚的小团子，很多人后来选择从事动物保护相关的工作，最初的初心都来自童年里和大熊猫的那次相遇。
+      </p>
+      <p>
+        上一轮合作的二十年里，两国的动物保护专家也借着熊猫的纽带，开展了大量深度的科研交流。大家一起在亚特兰大完成了大熊猫行为训练、预防兽医学、公众保护教育等多个领域的研究，不仅解决了不少大熊猫饲养繁育里的实际难题，这些经验后来也反哺到了国内的大熊猫保护工作中，为后来的野化放归、大熊猫国家公园建设都提供了宝贵的国际参考。正是因为有了这二十年扎实又愉快的合作，当亚特兰大动物园再次提出合作申请时，双方很快就敲定了新一轮的保护计划，平平和福双的到来，就是这份长久信任的最好证明。
+      </p>
+
+      <h2>“最萌外交官”背后的保护初心</h2>
+      <p>
+        很多人提到大熊猫的跨国旅居，最先想到的是“熊猫外交”的浪漫故事，但走到今天，这份跨越国界的交流，内核早就变成了基于科学的全球物种保护协作。从上世纪90年代开始，中国就不再以赠送的方式向外输出大熊猫，所有的国际合作都严格遵循统一规则：所有旅外大熊猫以及它们在海外生下的幼崽，产权都完全归属中国，幼崽原则上要在4周岁前返回国内。这套制度不仅保障了大熊猫种群的遗传完整性，也让每一次国际合作都完全围绕“保护”这个核心展开。
+      </p>
+      <p>
+        想要获得大熊猫的合作资格，外方的合作机构必须通过层层严格的考核，场馆设施、饲养技术、配套的科研团队、专门的食物保障体系，每一项都要达到国际顶尖标准才能过关。此前荷兰为了迎接大熊猫，整整等了16年，专门砸下700万欧元修建了9000多平方米的中国风熊猫馆；卡塔尔为了让大熊猫在沙漠里住得舒适，直接建起了12万平方米的恒温熊猫度假村，连新风系统都做了全方面的特殊设计。而这次平平和福双要入住的亚特兰大动物园熊猫馆，也早就完成了全面升级，不仅保留了当年洋洋伦伦生活时的熟悉布局，还新增了更多适合大熊猫活动的丰容设施，连日常投喂的竹种清单，都提前几个月就和成都的饲养团队反复确认过。
+      </p>
+      <p>
+        饮食上的保障更是细致到了极致。大熊猫每天要花16到17个小时进食，对竹子的新鲜度、品种都非常挑剔，亚特兰大动物园除了之前的专属竹林，还专门开辟了新的种植区，搭配定期从指定产地运输的新鲜竹种，保证平平和福双刚到美国，就能吃到和在成都家里味道几乎一样的竹子。中方的保护团队也会全程跟进两只熊猫的旅居生活，月度健康监测、年度全面体检，还有定期的中美学界交流，所有的环节都有完善的预案，确保两只滚滚在海外能安心干饭、快乐玩耍。
+      </p>
+      <p>
+        外交部早前在例行记者会上也专门提到，大熊猫是中国的国宝，也是连接世界人民友谊的使者，新一轮的中美大熊猫保护合作，不只是为了让两只大熊猫得到更好的照料，更希望能推动两国在濒危物种重大疾病防治、野外栖息地保护、公众环保教育这些领域产出更多成果，为全球的生物多样性保护探索出更多可借鉴的经验。
+      </p>
+
+      <h2>圆滚滚的身躯，装着跨越山海的温柔</h2>
+      <p>
+        从古至今，大熊猫似乎天生就带着一份消解隔阂的魔力。千年前的古籍里，古人把大熊猫称作“驺虞”，认为它是不伤害生灵的和平神兽，战场上双方看到驺虞旗就会主动休战；唐朝时期武则天就曾把大熊猫作为国礼送给日本，开启了中国通过和平友好的信物连接世界的传统。1972年，随着中美关系解冻，大熊猫玲玲和兴兴来到美国华盛顿国家动物园，整个美国都掀起了前所未有的熊猫热潮，那一年甚至被美国人称作“熊猫年”，无数民众排着几个小时的队，只为隔着玻璃看一眼这来自东方的黑白萌物。
+      </p>
+      <p>
+        后来的几十年里，这样的温暖故事在全世界各个有大熊猫旅居的国家不断上演：日本民众在大熊猫香香回国时，数百人自发到机场沿线送别，像送自己远嫁的女儿一样红了眼眶；韩国饲养员为了让福宝回国后能适应中文环境，提前很久就每天对着她讲中文，还亲手给她做了无数竹子做的小玩具；旅居俄罗斯的大熊猫如意，在当地饲养员的宠爱下，彻底释放天性，天天爬树玩轮胎，被网友调侃“彻底俄化”。大熊猫靠着没有任何文化壁垒的萌态，成了全世界通用的“治愈符号”，不管语言是否相通，不管文化有多少差异，只要看到圆滚滚的大熊猫抱着竹子啃得一脸满足，所有人都会不自觉地露出笑容。
+      </p>
+      <p>
+        这次平平和福双的到来，对亚特兰大乃至全美国的熊猫爱好者来说，就是一份跨越山海的惊喜。不少当地民众已经在社交平台上晒出了自己当年去看洋洋和伦伦的老照片，说现在终于能带着自己的孩子，去动物园认识新来的平平和福双，把家里持续了几十年的“熊猫之约”延续下去。这些看起来细碎又日常的画面，恰恰是大熊猫最独特的力量：它不需要宏大的叙事，只凭着一个打滚、一个啃竹子的背影，就能让不同国家的普通人，找到一份共通的柔软善意。
+      </p>
+
+      <p>
+        再过几天，平平和福双就将踏上飞往亚特兰大的航班，在那里开启他们为期十年的新生活。他们会在全新的熊猫馆里晒到不一样角度的太阳，会吃到带着美洲大地露水的新鲜竹子，会被无数喜爱他们的人围着拍照，会成为中美两国人民之间新的温暖记忆连接点。这趟旅程从来不是简单的“借住”，而是两个国家的保护工作者，为了同一个守护物种的目标走到一起，也是两国民众借着两只圆滚滚的萌物，重新找到一份跨越太平洋的亲近感。
+      </p>
+      <p>
+        就像很多网友说的那样，希望平平和福双在美国的十年，每天都能有吃不完的新鲜竹子，有滚不完的草坪，能像之前所有的旅外大熊猫一样，安心做两个无忧无虑的快乐团子，用自己软乎乎的萌力，给大洋彼岸的人们带去十年的治愈和欢笑。而这份藏在黑白绒毛里的温柔，最终也会变成连接两个国家的最坚实、最动人的情感纽带。
+      </p>
+
+      <hr />
+
+      <p class="share">
+        <a
+          href="https://twitter.com/intent/tweet?url=https://blog.rensite.cn/4.html"
+          target="_blank"
+          rel="noopener"
+        >
+          分享至 Twitter
+        </a>
+      </p>
+
+      <hr />
+
+      <p class="copyright">版权所有2026</p>
+    </main>
+  </body>
+</html>
